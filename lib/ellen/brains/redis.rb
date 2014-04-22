@@ -11,7 +11,7 @@ module Ellen
 
       attr_reader :thread
 
-      env :REDIS_URL, "Redis URL (e.g. redis://foo:bar@example.com:6379/"
+      env :REDIS_URL, "Redis URL (e.g. redis://foo:bar@example.com:6379/)"
       env :REDIS_SAVE_INTERVAL, "Interval sec to push data to Redis (default: 5)", optional: true
 
       def initialize
