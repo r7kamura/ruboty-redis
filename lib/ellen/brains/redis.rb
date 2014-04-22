@@ -17,14 +17,11 @@ module Ellen
       def initialize
         super
         @thread = Thread.new { sync }
+        @thread.abort_on_exception = true
       end
 
       def data
         @data ||= pull || {}
-      end
-
-      def save
-        push
       end
 
       private
@@ -34,15 +31,15 @@ module Ellen
       end
 
       def pull
-        if value = client.get(KEY)
-          JSON.parse(value)
+        if data = client.get(KEY)
+          JSON.parse(data)
         end
       end
 
       def sync
         loop do
           wait
-          save
+          push
         end
       end
 
