@@ -1,5 +1,5 @@
 # Ellen::Redis
-Store Ellen's memory in Redis.
+Store [Ellen](https://github.com/r7kamura/ellen/)'s memory in Redis.
 
 ## Usage
 ```ruby
