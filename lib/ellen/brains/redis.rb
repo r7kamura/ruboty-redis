@@ -1,4 +1,3 @@
-require "json"
 require "redis"
 require "redis/namespace"
 
@@ -27,13 +26,14 @@ module Ellen
       private
 
       def push
-        client.set(KEY, data.to_json)
+        client.set(KEY, Marshal.dump(data))
       end
 
       def pull
-        if data = client.get(KEY)
-          JSON.parse(data)
+        if str = client.get(KEY)
+          Marshal.load(str)
         end
+      rescue TypeError
       end
 
       def sync
@@ -61,10 +61,6 @@ module Ellen
 
       def interval
         (ENV["REDIS_SAVE_INTERVAL"] || 5).to_i
-      end
-
-      def encoded_value
-        data.to_json
       end
     end
   end
