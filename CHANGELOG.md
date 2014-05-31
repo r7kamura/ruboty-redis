@@ -1,3 +1,6 @@
+## 0.0.4
+* Rename: Ellen -> Ruboty
+
 ## 0.0.3
 * Change stored memory format from JSON to Marshal
 
