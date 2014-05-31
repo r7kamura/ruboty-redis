@@ -1,10 +1,10 @@
-# Ellen::Redis
-Store [Ellen](https://github.com/r7kamura/ellen/)'s memory in Redis.
+# Ruboty::Redis
+Store [Ruboty](https://github.com/r7kamura/ruboty/)'s memory in Redis.
 
 ## Usage
 ```ruby
 # Gemfile
-gem "ellen-redis"
+gem "ruboty-redis"
 ```
 
 ## ENV
@@ -14,4 +14,4 @@ REDIS_SAVE_INTERVAL - Interval sec to push data to Redis (default: 5)
 ```
 
 ## Screenshot
-![](https://raw.githubusercontent.com/r7kamura/ellen-redis/master/images/screenshot.png)
+![](https://raw.githubusercontent.com/r7kamura/ruboty-redis/master/images/screenshot.png)

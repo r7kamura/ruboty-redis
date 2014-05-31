@@ -1,10 +1,10 @@
 require "redis"
 require "redis/namespace"
 
-module Ellen
+module Ruboty
   module Brains
     class Redis < Base
-      NAMESPACE = "ellen"
+      NAMESPACE = "ruboty"
 
       KEY = "brain"
 
