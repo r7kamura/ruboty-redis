@@ -1,3 +1,6 @@
+## 0.0.5
+* Support REDISTOGO_URL
+
 ## 0.0.4
 * Rename: Ellen -> Ruboty
 
