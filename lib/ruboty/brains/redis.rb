@@ -10,8 +10,9 @@ module Ruboty
 
       attr_reader :thread
 
-      env :REDIS_URL, "Redis URL (e.g. redis://foo:bar@example.com:6379/)"
       env :REDIS_SAVE_INTERVAL, "Interval sec to push data to Redis (default: 5)", optional: true
+      env :REDIS_URL, "Redis URL (e.g. redis://foo:bar@example.com:6379/)", optional: true
+      env :REDISTOGO_URL, "Another Redis URL (At least one Redis URL is required)", optional: true
 
       def initialize
         super
@@ -21,6 +22,12 @@ module Ruboty
 
       def data
         @data ||= pull || {}
+      end
+
+      # Override.
+      def validate!
+        super
+        Ruboty.die("#{self.class.usage}") unless url
       end
 
       private
@@ -56,7 +63,7 @@ module Ruboty
       end
 
       def url
-        ENV["REDIS_URL"]
+        ENV["REDIS_URL"] || ENV["REDISTOGO_URL"]
       end
 
       def interval
