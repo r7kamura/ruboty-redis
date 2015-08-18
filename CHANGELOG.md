@@ -1,3 +1,6 @@
+## 0.0.6
+* Support REDIS_NAMESPACE env
+
 ## 0.0.5
 * Support REDISTOGO_URL
 
