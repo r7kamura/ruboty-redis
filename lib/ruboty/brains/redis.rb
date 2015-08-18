@@ -4,8 +4,6 @@ require "redis/namespace"
 module Ruboty
   module Brains
     class Redis < Base
-      NAMESPACE = "ruboty"
-
       KEY = "brain"
 
       attr_reader :thread
@@ -13,6 +11,7 @@ module Ruboty
       env :REDIS_SAVE_INTERVAL, "Interval sec to push data to Redis (default: 5)", optional: true
       env :REDIS_URL, "Redis URL (e.g. redis://foo:bar@example.com:6379/)", optional: true
       env :REDISTOGO_URL, "Another Redis URL (At least one Redis URL is required)", optional: true
+      env :REDIS_NAMESPACE, "Redis name space (default: ruboty)", optional: true
 
       def initialize
         super
@@ -55,7 +54,11 @@ module Ruboty
       end
 
       def client
-        @client ||= ::Redis::Namespace.new(NAMESPACE, redis: redis)
+        @client ||= ::Redis::Namespace.new(namespace, redis: redis)
+      end
+
+      def namespace
+        ENV["REDIS_NAMESPACE"] || "ruboty"
       end
 
       def redis
