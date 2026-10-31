@@ -16,4 +16,4 @@ REDIS_NAMESPACE     - Redis name space (default: ruboty)
 ```
 
 ## Screenshot
-![](https://raw.githubusercontent.com/r7kamura/ruboty-redis/master/images/screenshot.png)
+![](https://raw.githubusercontent.com/r7kamura/ruboty-redis/main/images/screenshot.png)
